@@ -1,56 +1,66 @@
 <?php
-mysql_connect("{HOST_NAME}","{DB_NAME}","{DB_PASSWORD}");
-mysql_select_db("{DB_NAME}");
 
-function generatecode($num)
-{
-	$num = $num + 10000000;
-	return base_convert($num, 10, 36);
-}
+class makeitshort {
+		protected $db;
 
-function makecode($url)
-{
-	$url = trim($url);
-	if(!filter_var($url,FILTER_VALIDATE_URL))
-	{
-		return '';
-	}
-	else
-	{
-		$url = mysql_real_escape_string($url);
-		$exist = mysql_query("SELECT * FROM `link` WHERE `url` = '".$url."'")or die(mysql_error());
-		$code = mysql_fetch_assoc($exist);
-		if(mysql_num_rows($exist))
+		public function __construct()
 		{
-			return $code['code'];
-		}
-		else
-		{
-			$insert = mysql_query("INSERT INTO `link` (`url`,`created`) VALUES ('".$url."','".time()."')") or die(mysql_error());
-			$fetch = mysql_query("SELECT * FROM `link` WHERE `url` = '".$url."'")or die(mysql_error());
-			$get_id = mysql_fetch_assoc($fetch);
-			$secret = generatecode($get_id['id']);
-			$update = mysql_query("UPDATE `link` SET `code` = '".$secret."' WHERE `url` = '".$url."'") or die(mysql_error());
-			return $secret;
+			$this->db = new mysqli('{HOST_NAME}','{USER_NAME}','{USER_PASSWORD}','{DB_NAME}');
+			if($this->db->connect_errno)
+			{
+				header("Location: ../index.php?error=db");
+				die();
+			}
 		}
 
-	}
+		public function generatecode($num)
+		{
+			$num = $num + 10000000;
+			return base_convert($num, 10, 36);
+		}
+
+		public function returncode($url)
+		{
+			$url = trim($url);
+			if(!filter_var($url,FILTER_VALIDATE_URL))
+			{
+				header("Location: ../index.php?error=inurl");
+				die();
+			}
+			else
+			{
+				$url = $this->db->real_escape_string($url);
+				$exist = $this->db->query("SELECT * FROM link WHERE url ='{$url}'");
+				if($exist->num_rows)
+				{
+					$code = $exist->fetch_object()->code;
+					return $code;
+				}
+				else
+				{
+					$insert = $this->db->query("INSERT INTO link (url,created) VALUES ('{$url}',NOW())");
+					$fetch = $this->db->query("SELECT * FROM link WHERE url = '{$url}'");
+					$get_id = $fetch->fetch_object()->id;
+					$secret = $this->generatecode($get_id);
+					$update = $this->db->query("UPDATE link SET code = '{$secret}' WHERE url = '{$url}'");
+					return $secret;
+				}
+			}
+		}
+
+		public function geturl($string)
+		{
+			$string = $this->db->real_escape_string(strip_tags(addslashes($string)));
+			$rows = $this->db->query("SELECT url FROM link WHERE code = '{$string}'");
+			if($rows->num_rows)
+			{
+				return $rows->fetch_object()->url;
+			}
+			else
+			{
+				header("Location: index.php?error=dnp");
+				die();
+			}
+		}
 }
-
-function geturl($string)
-{
-
-	$string = mysql_real_escape_string(strip_tags(addslashes($string)));
-	$rows = mysql_query("SELECT `url` FROM `link` WHERE `code` = '".$string."'")or die(mysql_error());
-	if(mysql_num_rows($rows))
-	{
-		$url_return = mysql_fetch_assoc($rows);
-		return $url_return['url'];
-	}
-	else
-	{
-		return "";
-	}
-}
-
 ?>

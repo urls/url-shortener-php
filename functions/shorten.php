@@ -1,19 +1,19 @@
 <?php
 	session_start();
-	include ("function.php");
+	require_once 'function.php';
+			$call = new makeitshort;
 
-	if(isset($_POST['url']))
-	{
-		$url = $_POST['url'];
-		if($code = makecode($url))
-		{
-			$_SESSION['feedback'] = "Generated url is : <a href=\"http://urls.ml/".$code."\">http://urls.ml/".$code."</a>";
-		}
-		else
-		{
-			$_SESSION['feedback'] = "There was a problem. Invalid url, perhaps ?";
-		}
-	}
-
-	header("Location: /project/url");
-	?>		
+			if(isset($_POST['url']))
+			{
+				$url = $_POST['url'];
+				if($code = $call->returncode($url))
+				{
+					$_SESSION['success'] = "<a href=\"http://urls.ml/{$code}\">http://urls.ml/{$code}</a>";
+				}
+				else
+				{
+					$_SESSION['error'] = "There was a problem. Invalid URL, perhaps?";
+				}
+			}
+			header("Location: ../index.php");
+?>

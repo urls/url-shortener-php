@@ -1,37 +1,48 @@
 <?php
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="en">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<meta name="author" content="url shortener">
+	<title>MakeItShort!</title>
 	<link rel="stylesheet" href="css/main.css">
-	<title>URL Shortner</title>
 </head>
 <body>
-	<h1>Shorten a URL</h1>
-	<hr>
-	<div class="container">
-		<center>
-<?php
-
-	if(isset($_SESSION['feedback']))
-	{
-		echo "<p>".$_SESSION['feedback']."</p>";
-		unset($_SESSION['feedback']);
-	}
-
-?>
-			<form method="POST" action="functions/shorten.php">
-				<input type="url" class="form-control" name="url" placeholder="Enter your Long URL here" autofocus /><br>
-				<input type="submit" value="Shorten" class="btn btn-primary btn-lg">
-			</form>
-		</center>
-	</div>
+<br>
+<center>
+<h1>Make It Short</h1>
+	<?php
+		if(isset($_SESSION['success']))
+		{
+			echo "<p class='success'>".$_SESSION['success']."</p>";
+			unset($_SESSION['success']);
+		}
+		if(isset($_SESSION['error']))
+		{
+			echo "<p class='alert'>".$_SESSION['error']."</p>";
+			unset($_SESSION['error']);
+		}
+		if(isset($_GET['error']) && $_GET['error'] == 'db')
+		{
+			echo "<p class='alert'>Error in connecting to Database!</p>";
+		}
+		if(isset($_GET['error']) && $_GET['error'] == 'inurl')
+		{
+			echo "<p class='alert'>Not a valid url!</p>";
+		}
+		if(isset($_GET['error']) && $_GET['error'] == 'dnp')
+		{
+			echo "<p class='alert'>Ok! so i got to know you love playing! But don't play here!!</p>";
+		}
+	?>
+	<form method="POST" action="functions/shorten.php">
+		<input type="url" name="url" class="input" placeholder="Enter a url here"><br>
+		<input type="submit" value="Go" class="submit">
+	</form>
+</center>
 </body>
 </html>

@@ -1,10 +1,8 @@
-/* 
-* @Author: Prabhakar Gupta
-* @Date:   2016-01-26 15:08:09
-* @Last Modified by:   Prabhakar Gupta
-* @Last Modified time: 2016-01-26 15:18:14
-*/
-
+*
+{
+  margin: 0px;
+  padding: 0px;
+}
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
 
@@ -13,11 +11,58 @@ body {
 	/*background-image: url(../img/a566df2b-7ce7-4f83-a490-5df2ef949817.png);*/
 	background-color: white;
 }
-
-h1 {
-	padding: 2%;
-	/*font-weight: 900;*/
-	background-color: #428bca;
-	color: white;
-	text-align: center;
+h1
+{
+  text-align: center;
+  font-size: 40px;
+  margin: 20px;
+  color: #167699;
+}
+.input
+{
+  width:50vw;
+  min-width: 300px;
+  padding: 10px;
+  height:20px;
+  outline-color: #167699;
+  border: 1px solid #ddd;
+}
+.submit
+{
+  width:100px;
+  height:40px;
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  outline-color: #167699;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.alert
+{
+  font-size: 14px;
+  color:#000;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding-top:5px;
+  padding-bottom: 5px;
+  color:#fff;
+  background-color: rgba(211, 47, 47, 1);
+}
+.success
+{
+  font-size: 14px;
+  color:#000;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding-top:5px;
+  padding-bottom: 5px;
+  color:#fff;
+  background-color: lightgreen;
+  text-decoration: underline;
+}
+.success a
+{
+  color: #167699;
 }
