@@ -1,0 +1,23 @@
+/* 
+* @Author: Prabhakar Gupta
+* @Date:   2016-01-26 15:08:09
+* @Last Modified by:   Prabhakar Gupta
+* @Last Modified time: 2016-01-26 15:18:14
+*/
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
+
+body {
+	font-family: 'Roboto', sans-serif;
+	/*background-image: url(../img/a566df2b-7ce7-4f83-a490-5df2ef949817.png);*/
+	background-color: white;
+}
+
+h1 {
+	padding: 2%;
+	/*font-weight: 900;*/
+	background-color: #428bca;
+	color: white;
+	text-align: center;
+}
