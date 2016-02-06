@@ -7,18 +7,15 @@ It is a small set of PHP scripts that will help you in shortening your url by wh
 --Database Name : urls
   -- Table name : Link
     --with some sample inputs
-               _____________________________________________________________________________
-              |       id      |        url         |        code        |      created      |
-              |     (int(11)) |    (varchar(1000)) |     (varchar(20))  |     (timestamp)   |
-              |-----------------------------------------------------------------------------|
-              |        1      |http://amarpandey.ml|      5yc1u         |2016-01-29 23:46:41|
-              |_______________|____________________|____________________|___________________|
-              |        2      | http://amar.com    |      5yc1u         |2016-01-29 23:46:41|
-              |_______________|____________________|____________________|___________________|
-              |        3      | http://yahoo.com   |      5yc1u         |2016-01-29 23:46:41|
-              |_______________|____________________|____________________|___________________|
-              |        4      | http://github.io   |      5yc1u         |2016-01-29 23:46:41|
-              |_______________|____________________|____________________|___________________|
+
+
+              |     id        |      url           |  Code     |       Created       |
+              | ------------- |:------------------:|:---------:|--------------------:|
+              |       1       |http://amarpandey.ml|   5yc1u   | 2016-01-29 23:46:41 |
+              |       2       |http://amar.com     |   5yc1w   | 2016-01-29 23:46:41 |
+              |       3       |http://yahoo.com    |   5yc1x   | 2016-01-29 23:46:41 |
+              |       4       |http://github.io    |   5yc1y   | 2016-01-29 23:46:41 |
+
 
 Basic UI :
 ![url-shortener](https://raw.githubusercontent.com/amarlearning/url-shortener/master/img/imageone.jpg)
