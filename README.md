@@ -18,7 +18,7 @@ It is a small set of PHP scripts that will help you in shortening your url by wh
 
 
 Basic UI :
-![url-shortener](https://raw.githubusercontent.com/urls/url-shortener/master/img/imageone.jpg)
+![url-shortener](https://raw.githubusercontent.com/urls/url-shortener/master/img/imgone.jpg)
 
 
 Enter the domain in the input box. In order to find whether a url is valid or invalid there are two check avilable.
