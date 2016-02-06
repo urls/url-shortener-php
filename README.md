@@ -21,14 +21,14 @@ It is a small set of PHP scripts that will help you in shortening your url by wh
               |_______________|____________________|____________________|___________________|
 
 Basic UI :
-![NYTimes Update](https://raw.githubusercontent.com/amarlearning/NYTimes/master/img/imageone.jpg)
+![url-shortener](https://raw.githubusercontent.com/amarlearning/url-shortener/master/img/imageone.jpg)
 
 
 Enter the domain in the input box. In order to find whether a url is valid or invalid there are two check avilable.
 one is the inbuilt check of HTML5 (type="email") this by default checks the validity of url and the other is the manual check using php (FILTER_VALIDATE_URL).
 
-![NYTimes Update](https://raw.githubusercontent.com/amarlearning/NYTimes/master/img/imagethree.jpg)
+![url-shortener](https://raw.githubusercontent.com/amarlearning/url-shortener/master/img/imagethree.jpg)
 
 
 If all the things worked correctly, then you will get output something like this :
-![NYTimes Update](https://raw.githubusercontent.com/amarlearning/NYTimes/master/img/imagetwo.jpg)
+![url-shortener](https://raw.githubusercontent.com/amarlearning/url-shortener/master/img/imagetwo.jpg)
