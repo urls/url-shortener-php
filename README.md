@@ -15,9 +15,14 @@ It is a small set of PHP scripts that will help you in shortening your url by wh
               |       2       |http://amar.com     |   5yc1w   | 2016-01-29 23:46:41 |
               |       3       |http://yahoo.com    |   5yc1x   | 2016-01-29 23:46:41 |
               |       4       |http://github.io    |   5yc1y   | 2016-01-29 23:46:41 |
+              
+  <table>
+    <tr>
+      <td>1</td>
+    </tr>
+  </table>
 
-
-Basic UI :
+<ul><li>Basic UI :</li></ul>
 ![url-shortener](https://raw.githubusercontent.com/urls/url-shortener/master/img/imgone.jpg)
 
 
