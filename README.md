@@ -4,10 +4,11 @@ It is a small set of PHP scripts that will help you in shortening your url by wh
 
 #DATABASE USED
 ===============
---Database Name : urls
-  -- Table name : Link
-    --with some sample inputs
-              
+<ul>
+  <li>Database Name : urls</li>
+  <li>Table name : Link</li>
+  <li>with some sample inputs</li>
+</ul>              
   <table>
     <tr>
       <td>id</td>
@@ -51,6 +52,6 @@ one is the inbuilt check of HTML5 (type="email") this by default checks the vali
 ![url-shortener](https://raw.githubusercontent.com/urls/url-shortener/master/img/imagethree.jpg)
 
 <ul>
-<li>If all the things worked correctly, then you will get output something like this :</li>
+<li>If all the things worked correctly, then you will get output something like this :</li></ul>
 ![url-shortener](https://raw.githubusercontent.com/urls/url-shortener/master/img/imagetwo.jpg)
-</ul>
+
