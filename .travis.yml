@@ -1,4 +1,1 @@
-language: php
-php:
-  - '5.4'
 phpunit
