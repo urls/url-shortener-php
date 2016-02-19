@@ -7,7 +7,7 @@ It is a small set of PHP scripts that will help you in shortening your url by wh
 <ul>
   <li>Database Name : urls</li>
   <li>Table name : Link</li>
-  <li>with some sample inputs</li>
+  <li>Sample inputs</li>
 </ul>              
   <table>
     <tr>
