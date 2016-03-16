@@ -18,7 +18,7 @@ It is a small set of PHP scripts that will help you in shortening your url by wh
     </tr>
     <tr>
       <td>1</td>
-      <td>http://amarpandey.ml</td>
+      <td>http://amarpandey.me</td>
       <td>5yc1u</td>
       <td>2016-01-29 23:46:41</td>
     </tr>
