@@ -5,7 +5,7 @@ class makeitshort {
 
 		public function __construct()
 		{
-			$this->db = new mysqli('{HOST_NAME}','{USER_NAME}','{USER_PASSWORD}','{DB_NAME}');
+			$this->db = new mysqli('localhost','root','root','urls');
 			if($this->db->connect_errno)
 			{
 				header("Location: ../index.php?error=db");
@@ -48,6 +48,31 @@ class makeitshort {
 			}
 		}
 
+		public function returncodeCustom($url,$custom)
+		{
+			$url = trim($url);
+			if(!filter_var($url,FILTER_VALIDATE_URL))
+			{
+				header("Location: ../index.php?error=inurl");
+				die();
+			}
+			else
+			{
+				$url = $this->db->real_escape_string($url);
+				$exist = $this->db->query("SELECT * FROM link WHERE url ='{$url}'");
+				if($exist->num_rows > 0)
+				{
+					$code = $exist->fetch_object()->code;
+					return $code;
+				}
+				else
+				{
+					$insert = $this->db->query("INSERT INTO link (url,code,created) VALUES ('{$url}','{$custom}',NOW())");
+					return $custom;
+				}
+			}
+		}
+
 		public function geturl($string)
 		{
 			$string = $this->db->real_escape_string(strip_tags(addslashes($string)));
@@ -60,6 +85,21 @@ class makeitshort {
 			{
 				header("Location: index.php?error=dnp");
 				die();
+			}
+		}
+
+		//This function check if the custom url already exists on the database
+		public function existsURL($short)
+		{
+			$short = $this->db->real_escape_string(strip_tags(addslashes($short)));
+			$rows = $this->db->query("SELECT url FROM link WHERE code = '{$short}' limit 1");
+			if($rows->num_rows > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
 			}
 		}
 }
