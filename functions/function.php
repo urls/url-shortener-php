@@ -47,6 +47,26 @@ class makeitshort {
 				}
 			}
 		}
+		
+		/**
+		 * Insert url and custom short url on the database
+		 *
+		 * @param string 			 $url        	Real Url
+		 * @param string             $custom	    Custom short url wanted
+		 *
+		 * @return bool
+		 */
+		public function returncodeCustom($url,$custom)
+		{
+			$url = trim($url);
+			$custom = trim($custom);
+			if(filter_var($url,FILTER_VALIDATE_URL)){
+				$insert = $this->db->query("INSERT INTO link (url,code,created) VALUES ('{$url}','{$custom}',NOW())");
+				return true;
+			}
+			
+			return false;
+		}
 
 		public function geturl($string)
 		{
@@ -60,6 +80,21 @@ class makeitshort {
 			{
 				header("Location: index.php?error=dnp");
 				die();
+			}
+		}
+
+		//This function check if the custom url already exists on the database
+		public function existsURL($short)
+		{
+			$short = $this->db->real_escape_string(strip_tags(addslashes($short)));
+			$rows = $this->db->query("SELECT url FROM link WHERE code = '{$short}' limit 1");
+			if($rows->num_rows > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
 			}
 		}
 }

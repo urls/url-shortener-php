@@ -40,9 +40,37 @@ session_start();
 		}
 	?>
 	<form method="POST" action="functions/shorten.php">
-		<input type="url" name="url" class="input" placeholder="Enter a url here"><br>
+		<div class="section group">
+			<div class="col span_3_of_3">
+				<input type="url" id ="input" name="url" class="input" placeholder="Enter a url here">
+			</div>
+			<div class="col span_1_of_3">
+				<input type="text" id ="custom" name="custom" class="input_custom" placeholder="Enable custom text" disabled>
+			</div>
+			<div class="col span_2_of_3">
+				<div class="onoffswitch">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick="toggle()">
+					<label class="onoffswitch-label" for="myonoffswitch"></label>
+				</div>
+			</div>
+		</div>
 		<input type="submit" value="Go" class="submit">
 	</form>
-</center>
+	<script>
+		function toggle() {
+			if(document.getElementById("myonoffswitch").checked){
+				document.getElementById("custom").placeholder = "Enter your custom text";
+				document.getElementById("custom").disabled = false;
+				document.getElementById("custom").focus();
+			}
+			else{
+				document.getElementById("custom").value = "";
+				document.getElementById("custom").placeholder = "Enable custom text";
+				document.getElementById("custom").disabled = true;
+				document.getElementById("custom").blur();
+				document.getElementById("input").focus();
+			}
+		}
+	</script>
 </body>
 </html>

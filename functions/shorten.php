@@ -1,19 +1,54 @@
 <?php
 	session_start();
 	require_once 'function.php';
+			$insertCustom = false;
+			$errors = false;
 			$call = new makeitshort;
 
-			if(isset($_POST['url']))
+			if(($_POST['onoffswitch'] == 'on') && (isset($_POST['custom'])))
 			{
-				$url = $_POST['url'];
-				if($code = $call->returncode($url))
+				$custom = $_POST['custom'];
+
+				if(!$call->existsURL($custom))
 				{
-					$_SESSION['success'] = "<a href=\"http://urls.ml/{$code}\">http://urls.ml/{$code}</a>";
+					$insertCustom = true;
 				}
 				else
 				{
-					$_SESSION['error'] = "There was a problem. Invalid URL, perhaps?";
+					$errors = true;
+					$_SESSION['error'] = "The custom URL <a href='http://urls.ml/".$_POST['custom']."'>http://urls.ml/".$_POST['custom']."</a> already exists";
 				}
 			}
+
+			if(isset($_POST['url']) && !$errors)
+			{
+				$url = $_POST['url'];
+
+				if(!$insertCustom)
+				{
+					if($code = $call->returncode($url))
+					{
+						$_SESSION['success'] = "<a href=\"http://urls.ml/{$code}\">http://urls.ml/{$code}</a>";
+					}
+					else
+					{
+						$_SESSION['error'] = "There was a problem. Invalid URL, perhaps?";
+					}
+				}
+				else
+				{
+					if($call->returncodeCustom($url,$custom))
+					{
+						$_SESSION['success'] = "<a href=\"http://urls.ml/{$custom}\">http://urls.ml/{$custom}</a>";
+					}
+					else
+					{
+						header("Location: ../index.php?error=inurl");
+						die();
+					}
+				}
+
+			}
+
 			header("Location: ../index.php");
 ?>
