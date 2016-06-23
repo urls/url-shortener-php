@@ -5,7 +5,7 @@ class makeitshort {
 
 		public function __construct()
 		{
-			$this->db = new mysqli('localhost','root','','urls');
+			$this->db = new mysqli('{HOST_NAME}','{USER_NAME}','{USER_PASSWORD}','{DB_NAME}');
 			if($this->db->connect_errno)
 			{
 				header("Location: ../index.php?error=db");
