@@ -20,7 +20,7 @@
 				}
 			}
 
-			if(isset($_POST['url']) && !errors)
+			if(isset($_POST['url']) && !$errors)
 			{
 				$url = $_POST['url'];
 
@@ -37,13 +37,14 @@
 				}
 				else
 				{
-					if($code = $call->returncodeCustom($url,$custom))
+					if($call->returncodeCustom($url,$custom))
 					{
-						$_SESSION['success'] = "<a href=\"http://urls.ml/{$code}\">http://urls.ml/{$code}</a>";
+						$_SESSION['success'] = "<a href=\"http://urls.ml/{$custom}\">http://urls.ml/{$custom}</a>";
 					}
 					else
 					{
-						$_SESSION['error'] = "There was a problem. Invalid URL, perhaps?";
+						header("Location: ../index.php?error=inurl");
+						die();
 					}
 				}
 

@@ -5,7 +5,7 @@ class makeitshort {
 
 		public function __construct()
 		{
-			$this->db = new mysqli('localhost','root','root','urls');
+			$this->db = new mysqli('localhost','root','','urls');
 			if($this->db->connect_errno)
 			{
 				header("Location: ../index.php?error=db");
@@ -47,30 +47,25 @@ class makeitshort {
 				}
 			}
 		}
-
+		
+		/**
+		 * Insert url and custom short url on the database
+		 *
+		 * @param string 			 $url        	Real Url
+		 * @param string             $custom	    Custom short url wanted
+		 *
+		 * @return bool
+		 */
 		public function returncodeCustom($url,$custom)
 		{
 			$url = trim($url);
-			if(!filter_var($url,FILTER_VALIDATE_URL))
-			{
-				header("Location: ../index.php?error=inurl");
-				die();
+			$custom = trim($custom);
+			if(filter_var($url,FILTER_VALIDATE_URL)){
+				$insert = $this->db->query("INSERT INTO link (url,code,created) VALUES ('{$url}','{$custom}',NOW())");
+				return true;
 			}
-			else
-			{
-				$url = $this->db->real_escape_string($url);
-				$exist = $this->db->query("SELECT * FROM link WHERE url ='{$url}'");
-				if($exist->num_rows > 0)
-				{
-					$code = $exist->fetch_object()->code;
-					return $code;
-				}
-				else
-				{
-					$insert = $this->db->query("INSERT INTO link (url,code,created) VALUES ('{$url}','{$custom}',NOW())");
-					return $custom;
-				}
-			}
+			
+			return false;
 		}
 
 		public function geturl($string)
