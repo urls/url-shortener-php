@@ -1,4 +1,4 @@
-<h1 align="center" id="pingetron">Make It Short</h1>
+<h1 align="center" id="urls">Make It Short</h1>
 <h4 align="center">[Url Shortener with custom urls feature!]</h4>
 
 <p align="center">
