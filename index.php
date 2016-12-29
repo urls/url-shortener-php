@@ -1,6 +1,7 @@
 <?php
-session_start();
+	session_start();
 ?>
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -28,21 +29,21 @@ session_start();
 		}
 		if(isset($_GET['error']) && $_GET['error'] == 'db')
 		{
-			echo "<p class='alert'>Error in connecting to Database!</p>";
+			echo "<p class='alert'>Error in connecting to database!</p>";
 		}
 		if(isset($_GET['error']) && $_GET['error'] == 'inurl')
 		{
-			echo "<p class='alert'>Not a valid url!</p>";
+			echo "<p class='alert'>Not a valid URL!</p>";
 		}
 		if(isset($_GET['error']) && $_GET['error'] == 'dnp')
 		{
-			echo "<p class='alert'>Ok! so i got to know you love playing! But don't play here!!</p>";
+			echo "<p class='alert'>Ok! So I got to know you love playing! But don't play here!!!</p>";
 		}
 	?>
 	<form method="POST" action="functions/shorten.php">
 		<div class="section group">
 			<div class="col span_3_of_3">
-				<input type="url" id ="input" name="url" class="input" placeholder="Enter a url here">
+				<input type="url" id ="input" name="url" class="input" placeholder="Enter a URL here">
 			</div>
 			<div class="col span_1_of_3">
 				<input type="text" id ="custom" name="custom" class="input_custom" placeholder="Enable custom text" disabled>
