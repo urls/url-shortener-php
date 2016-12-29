@@ -1,6 +1,7 @@
 <?php
 
 class makeitshort {
+	
 		protected $db;
 
 		public function __construct()
@@ -56,6 +57,7 @@ class makeitshort {
 		 *
 		 * @return bool
 		 */
+
 		public function returncodeCustom($url,$custom)
 		{
 			$url = trim($url);
@@ -83,11 +85,11 @@ class makeitshort {
 			}
 		}
 
-		//This function check if the custom url already exists on the database
+		// This function check if the custom url already exists on the database
 		public function existsURL($short)
 		{
 			$short = $this->db->real_escape_string(strip_tags(addslashes($short)));
-			$rows = $this->db->query("SELECT url FROM link WHERE code = '{$short}' limit 1");
+			$rows = $this->db->query("SELECT url FROM link WHERE code = '{$short}' LIMIT 1");
 			if($rows->num_rows > 0)
 			{
 				return true;
