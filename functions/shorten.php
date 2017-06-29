@@ -3,13 +3,13 @@
 	require_once 'function.php';
 			$insertCustom = false;
 			$errors = false;
-			$call = new makeitshort;
+			$shortener = new UrlShortener();
 
 			if(($_POST['onoffswitch'] == 'on') && (isset($_POST['custom'])))
 			{
 				$custom = $_POST['custom'];
 
-				if(!$call->existsURL($custom))
+				if(!$shortener->existsURL($custom))
 				{
 					$insertCustom = true;
 				}
@@ -26,9 +26,9 @@
 
 				if(!$insertCustom)
 				{
-					if($code = $call->returncode($url))
+					if($code = $shortener->returnCode($url))
 					{
-						$_SESSION['success'] = "<a href=\"http://urls.ml/{$code}\">http://urls.ml/{$code}</a>";
+						$_SESSION['success'] = generateUrl($code);
 					}
 					else
 					{
@@ -37,9 +37,9 @@
 				}
 				else
 				{
-					if($call->returncodeCustom($url,$custom))
+					if($shortener->returnCodeCustom($url,$custom))
 					{
-						$_SESSION['success'] = "<a href=\"http://urls.ml/{$custom}\">http://urls.ml/{$custom}</a>";
+						$_SESSION['success'] = generateUrl($custom);
 					}
 					else
 					{
@@ -48,6 +48,10 @@
 					}
 				}
 
+			}
+
+			function generateUrl($urlSuffix = ''){
+				return "<a href='http://urls.ml/{$urlSuffix}'>http://urls.ml/{$urlSuffix}</a>";
 			}
 
 			header("Location: ../index.php");
