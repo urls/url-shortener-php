@@ -7,7 +7,7 @@
 </p>
 It is a small set of PHP scripts that will help you in shortening your url by which you can get a more precised version of your url at ease.
 
-###Screenshots
+### Screenshots
 ![url-shortener](https://raw.githubusercontent.com/urls/url-shortener/master/img/s1.png)
 ***
 ![url-shortener](https://raw.githubusercontent.com/urls/url-shortener/master/img/s2.png)
@@ -35,7 +35,7 @@ You can [tweet me](https://twitter.com/amarpandey007) if you can't get it to wor
 
 ***
 
-##License
+## License
 [:arrow_up:\[Back to Top\]](https://github.com/urls/url-shortener)
 
 Built with ♥ by Amar Prakash Pandey([@amarlearning](http://github.com/amarlearning)) under [MIT License](http://amarlearning.mit-license.org/) 
