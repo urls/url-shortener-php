@@ -1,12 +1,13 @@
 <?php
 
-class makeitshort {
+class UrlShortener{
 	
 		protected $db;
 
 		public function __construct()
 		{
 			$this->db = new mysqli('{HOST_NAME}','{USER_NAME}','{USER_PASSWORD}','{DB_NAME}');
+
 			if($this->db->connect_errno)
 			{
 				header("Location: ../index.php?error=db");
@@ -14,13 +15,13 @@ class makeitshort {
 			}
 		}
 
-		public function generatecode($num)
+		public function generateCode($num)
 		{
 			$num = $num + 10000000;
 			return base_convert($num, 10, 36);
 		}
 
-		public function returncode($url)
+		public function returnCode($url)
 		{
 			$url = trim($url);
 			if(!filter_var($url,FILTER_VALIDATE_URL))
@@ -42,7 +43,7 @@ class makeitshort {
 					$insert = $this->db->query("INSERT INTO link (url,created) VALUES ('{$url}',NOW())");
 					$fetch = $this->db->query("SELECT * FROM link WHERE url = '{$url}'");
 					$get_id = $fetch->fetch_object()->id;
-					$secret = $this->generatecode($get_id);
+					$secret = $this->generateCode($get_id);
 					$update = $this->db->query("UPDATE link SET code = '{$secret}' WHERE url = '{$url}'");
 					return $secret;
 				}
@@ -58,7 +59,7 @@ class makeitshort {
 		 * @return bool
 		 */
 
-		public function returncodeCustom($url,$custom)
+		public function returnCodeCustom($url,$custom)
 		{
 			$url = trim($url);
 			$custom = trim($custom);
@@ -70,7 +71,7 @@ class makeitshort {
 			return false;
 		}
 
-		public function geturl($string)
+		public function getUrl($string)
 		{
 			$string = $this->db->real_escape_string(strip_tags(addslashes($string)));
 			$rows = $this->db->query("SELECT url FROM link WHERE code = '{$string}'");
@@ -90,14 +91,8 @@ class makeitshort {
 		{
 			$short = $this->db->real_escape_string(strip_tags(addslashes($short)));
 			$rows = $this->db->query("SELECT url FROM link WHERE code = '{$short}' LIMIT 1");
-			if($rows->num_rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+
+			return $rows->num_rows > 0;
 		}
 }
 ?>
