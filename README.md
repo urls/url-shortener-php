@@ -8,18 +8,18 @@
 It is a small set of PHP scripts that will help you in shortening your url by which you can get a more precised version of your url at ease.
 
 ### Screenshots
-![url-shortener](https://raw.githubusercontent.com/urls/url-shortener/master/img/s1.png)
+![url-shortener](img/s1.png)
 ***
-![url-shortener](https://raw.githubusercontent.com/urls/url-shortener/master/img/s2.png)
+![url-shortener](img/s2.png)
 ***
-![url-shortener](https://raw.githubusercontent.com/urls/url-shortener/master/img/s3.png)
+![url-shortener](img/s3.png)
 ***
-![url-shortener](https://raw.githubusercontent.com/urls/url-shortener/master/img/s4.png)
+![url-shortener](img/s4.png)
 
-### Contributing
+## Contributing
 Pull requests are always welcome so don't hesitate to create one.
 
-#### Code Style
+### Code Style
 The code is formatted according to the [PSR-2](http://www.php-fig.org/psr/psr-2/) standard. Please follow this standard when making a contribution.
 
 
@@ -47,4 +47,4 @@ You can [tweet me](https://twitter.com/amarpandey007) if you can't get it to wor
 
 Built with ♥ by Amar Prakash Pandey([@amarlearning](http://github.com/amarlearning)) under [MIT License](http://amarlearning.mit-license.org/) 
 
-You can find a copy of the License at http://amarlearning.mit-license.org/
+You can find a copy of the License at [http://amarlearning.mit-license.org/](http://amarlearning.mit-license.org/)
