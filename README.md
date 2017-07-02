@@ -16,6 +16,13 @@ It is a small set of PHP scripts that will help you in shortening your url by wh
 ***
 ![url-shortener](https://raw.githubusercontent.com/urls/url-shortener/master/img/s4.png)
 
+### Contributing
+Pull requests are always welcome so don't hesitate to create one.
+
+#### Code Style
+The code is formatted according to the [PSR-2](http://www.php-fig.org/psr/psr-2/) standard. Please follow this standard when making a contribution.
+
+
 ## Contributors
 [:arrow_up:\[Back to Top\]](https://github.com/urls/url-shortener)
 
