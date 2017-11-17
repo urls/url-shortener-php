@@ -33,14 +33,13 @@ class UrlShortener
             if ($exist->num_rows) {
                 $code = $exist->fetch_object()->code;
                 return $code;
-            } else {
-                $insert = $this->db->query("INSERT INTO link (url,created) VALUES ('{$url}',NOW())");
-                $fetch = $this->db->query("SELECT * FROM link WHERE url = '{$url}'");
-                $get_id = $fetch->fetch_object()->id;
-                $secret = $this->generateCode($get_id);
-                $update = $this->db->query("UPDATE link SET code = '{$secret}' WHERE url = '{$url}'");
-                return $secret;
             }
+            $insert = $this->db->query("INSERT INTO link (url,created) VALUES ('{$url}',NOW())");
+            $fetch = $this->db->query("SELECT * FROM link WHERE url = '{$url}'");
+            $get_id = $fetch->fetch_object()->id;
+            $secret = $this->generateCode($get_id);
+            $update = $this->db->query("UPDATE link SET code = '{$secret}' WHERE url = '{$url}'");
+            return $secret;
         }
     }
 
