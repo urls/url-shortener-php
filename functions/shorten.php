@@ -1,18 +1,32 @@
 <?php
 session_start();
-require_once 'function.php';
+// more portable. It should work with any dev environment.
+
+
+require $_SERVER['DOCUMENT_ROOT'] . '/functions/UrlShortener.php';
+
 $insertCustom = false;
 $errors = false;
 $shortener = new UrlShortener();
 
-if (($_POST['onoffswitch'] == 'on') && (isset($_POST['custom']))) {
+if (isset($_POST['custom'])) {
     $custom = $_POST['custom'];
+}
 
-    if (!$shortener->existsURL($custom)) {
-        $insertCustom = true;
-    } else {
-        $errors = true;
-        $_SESSION['error'] = "The custom URL <a href='http://urls.ml/" . $_POST['custom'] . "'>http://urls.ml/" . $_POST['custom'] . "</a> already exists";
+if ($_POST['onoffswitch'] == 'on') {
+    try{
+        if (!$shortener->existsURL($custom)) {
+            $insertCustom = true;
+        } else {
+            $errors = true;
+            $_SESSION['error'] = "The custom URL <a href='http://www.url-shortener.kylebirch.info/" . $_POST['custom'] . "'>http://url-shortener.kylebirch.info/" . $_POST['custom'] . "</a> already exists";
+            header("Location: http://url-shortener.kylebirch.info/index.php");
+            die();
+        }
+    } catch (Exception $ex) {
+        $_SESSION['error'] = $ex;
+        header("Location: http://url-shortener.kylebirch.info/index.php");
+        die();
     }
 }
 
@@ -20,25 +34,28 @@ if (isset($_POST['url']) && !$errors) {
     $url = $_POST['url'];
 
     if (!$insertCustom) {
-        if ($code = $shortener->returnCode($url)) {
-            $_SESSION['success'] = generateUrl($code);
-        } else {
+        $result = $shortener->returnCode($url);
+        if ($result === false) {
             $_SESSION['error'] = "There was a problem. Invalid URL, perhaps?";
-        }
-    } else {
-        if ($shortener->returnCodeCustom($url, $custom)) {
-            $_SESSION['success'] = generateUrl($custom);
+            header("Location: http://url-shortener.kylebirch.info/index.php");
+            die();
         } else {
-            header("Location: ../index.php?error=inurl");
+            $_SESSION['success'] = generateUrl($result);
+            header("Location: http://url-shortener.kylebirch.info/index.php");
             die();
         }
+    } else {
+            $var = $shortener->returnCodeCustom($url, $custom);
+            $_SESSION['success'] = generateUrl($var);
+            header("Location: http://url-shortener.kylebirch.info/index.php");
+            die();
     }
-
 }
 
 function generateUrl($urlSuffix = '')
 {
-    return "<a href='http://urls.ml/{$urlSuffix}'>http://urls.ml/{$urlSuffix}</a>";
+    return '<a href="http://www.url-shortener.kylebirch.info/' . $urlSuffix . '">Your url is: http://www.url-shortener.kylebirch.info/' . $urlSuffix . '</a>';
 }
 
-header("Location: ../index.php");
+require $_SERVER['DOCUMENT_ROOT'] . '/index.php';
+die();
