@@ -7,9 +7,7 @@
 
   	public function __construct()
   	{
-  		// $this->db = new mysqli('{HOST_NAME}', '{USER_NAME}', '{USER_PASSWORD}', '{DB_NAME}');
-
-  		$this->db = new mysqli('localhost', 'root', 'amarmanto999331', 'urls');
+  		$this->db = new mysqli('{HOST_NAME}', '{USER_NAME}', '{USER_PASSWORD}', '{DB_NAME}');
 
   		if ($this->db->connect_errno) {
   			header("Location: ../index.php?error=db");

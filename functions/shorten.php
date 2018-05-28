@@ -23,7 +23,7 @@
   if (isset($_POST['url']) && !$errors) {
 
     $orignalURL = $_POST['url'];
-    
+
   	if (!$insertCustom) {
   		if ($uniqueCode = $urlShortener->validateUrlAndReturnCode($orignalURL)) {
   			$_SESSION['success'] = $urlShortener->generateLinkForShortURL($uniqueCode);
