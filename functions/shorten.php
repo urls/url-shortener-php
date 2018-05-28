@@ -1,44 +1,46 @@
 <?php
-session_start();
-require_once 'function.php';
-$insertCustom = false;
-$errors = false;
-$shortener = new UrlShortener();
+  session_start();
 
-if (($_POST['onoffswitch'] == 'on') && (isset($_POST['custom']))) {
-    $custom = $_POST['custom'];
+  require_once 'UrlShortener.php';
 
-    if (!$shortener->existsURL($custom)) {
-        $insertCustom = true;
-    } else {
-        $errors = true;
-        $_SESSION['error'] = "The custom URL <a href='http://urls.ml/" . $_POST['custom'] . "'>http://urls.ml/" . $_POST['custom'] . "</a> already exists";
-    }
-}
+  $errors = false;
+  $insertCustom = false;
 
-if (isset($_POST['url']) && !$errors) {
-    $url = $_POST['url'];
+  $urlShortener = new UrlShortener();
 
-    if (!$insertCustom) {
-        if ($code = $shortener->returnCode($url)) {
-            $_SESSION['success'] = generateUrl($code);
-        } else {
-            $_SESSION['error'] = "There was a problem. Invalid URL, perhaps?";
-        }
-    } else {
-        if ($shortener->returnCodeCustom($url, $custom)) {
-            $_SESSION['success'] = generateUrl($custom);
-        } else {
-            header("Location: ../index.php?error=inurl");
-            die();
-        }
-    }
+  if (($_POST['onoffswitch'] == 'on') && (isset($_POST['custom']))) {
 
-}
+  	$customCode = $_POST['custom'];
 
-function generateUrl($urlSuffix = '')
-{
-    return "<a href='http://urls.ml/{$urlSuffix}'>http://urls.ml/{$urlSuffix}</a>";
-}
+  	if (!$urlShortener->checkUrlExistInDatabase($customCode)) {
+  		$insertCustom = true;
+  	} else {
+  		$errors = true;
+  		$_SESSION['error'] = "The custom URL <a href='http://urls.ml/" . $_POST['custom'] . "'>http://urls.ml/" . $_POST['custom'] . "</a> already exists";
+  	}
+  }
 
-header("Location: ../index.php");
+  if (isset($_POST['url']) && !$errors) {
+
+    $orignalURL = $_POST['url'];
+    
+  	if (!$insertCustom) {
+  		if ($uniqueCode = $urlShortener->validateUrlAndReturnCode($orignalURL)) {
+  			$_SESSION['success'] = $urlShortener->generateLinkForShortURL($uniqueCode);
+  		} else {
+  			$_SESSION['error'] = "There was a problem. Invalid URL, perhaps?";
+  		}
+  	} else {
+  		if ($urlShortener->returnCustomCode($orignalURL, $customCode)) {
+  			$_SESSION['success'] = $urlShortener->generateLinkForShortURL($customCode);
+  		} else {
+  			header("Location: ../index.php?error=inurl");
+  			die();
+  		}
+  	}
+
+  }
+
+  header("Location: ../index.php");
+
+?>

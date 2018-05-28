@@ -2,4 +2,4 @@ RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ redirect.php?secret=$1 [L]
+RewriteRule ^(.*)$ functions/redirect.php?secret=$1 [L]
