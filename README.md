@@ -1,20 +1,14 @@
-<h1 align="center" id="urls">Make It Short</h1>
-<h4 align="center">[Url Shortener with custom urls feature!]</h4>
+# Make It Short
 
-<p align="center">
-<a href="http://amarlearning.mit-license.org/"><img src="https://img.shields.io/pypi/l/pyzipcode-cli.svg" alt="mit license"></a>
-<a href="https://github.com/urls/url-shortener/issues"><img src="https://camo.githubusercontent.com/926d8ca67df15de5bd1abac234c0603d94f66c00/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f6e747269627574696f6e732d77656c636f6d652d627269676874677265656e2e7376673f7374796c653d666c6174" alt="Issue"></a>
-</p>
-It is a small set of PHP scripts that will help you in shortening your url by which you can get a more precised version of your url at ease.
+[![MIT License](https://img.shields.io/pypi/l/pyzipcode-cli.svg)](http://amarlearning.mit-license.org/)
+[![Issues](https://camo.githubusercontent.com/926d8ca67df15de5bd1abac234c0603d94f66c00/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f6e747269627574696f6e732d77656c636f6d652d627269676874677265656e2e7376673f7374796c653d666c6174)](https://github.com/urls/url-shortener/issues)
+[![HitCount](http://hits.dwyl.io/amarlearning/url-shortener.svg)](http://hits.dwyl.io/amarlearning/url-shortener)
+
+ > Web application that will help you in shortening your url by which you can get a more precised version of your url at ease.
 
 ### Screenshots
 ![url-shortener](img/s1.png)
 ***
-![url-shortener](img/s2.png)
-***
-![url-shortener](img/s3.png)
-***
-![url-shortener](img/s4.png)
 
 ## Contributing
 Pull requests are always welcome so don't hesitate to create one.
