@@ -16,7 +16,11 @@
   		$insertCustom = true;
   	} else {
   		$errors = true;
-  		$_SESSION['error'] = "The custom URL <a href='http://urls.ml/" . $_POST['custom'] . "'>http://urls.ml/" . $_POST['custom'] . "</a> already exists";
+  		$_SESSION['error'] = sprintf(
+  			'The custom URL <a href="http://urls.ml/%s">http://urls.ml/%s</a> already exists',
+			$customCode,
+			$customCode
+		);
   	}
   }
 
