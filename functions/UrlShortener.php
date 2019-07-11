@@ -1,5 +1,7 @@
 <?php
 
+    require_once("../config.php");
+
 	class UrlShortener
   {
 
@@ -7,7 +9,7 @@
 
   	public function __construct()
   	{
-  		$this->db = new mysqli('{HOST_NAME}', '{USER_NAME}', '{USER_PASSWORD}', '{DB_NAME}');
+  		$this->db = new mysqli(HOST_NAME, USER_NAME, USER_PASSWORD, DB_NAME);
 
   		if ($this->db->connect_errno) {
   			header("Location: ../index.php?error=db");
@@ -134,7 +136,7 @@
 
   	public function generateLinkForShortURL($uniqueCode = '')
   	{
-  		return "<a href='http://urls.ml/{$uniqueCode}'>http://urls.ml/{$uniqueCode}</a>";
+        return '<a href="' . BASE_URL . $uniqueCode . '">' . BASE_URL . $uniqueCode . '</a>';
   	}
 
 

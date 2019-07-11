@@ -1,5 +1,6 @@
 <?php
-  session_start();
+    session_start();
+    require_once("../config.php");
 
   require_once 'UrlShortener.php';
 
@@ -16,7 +17,7 @@
   		$insertCustom = true;
   	} else {
   		$errors = true;
-  		$_SESSION['error'] = "The custom URL <a href='http://urls.ml/" . $_POST['custom'] . "'>http://urls.ml/" . $_POST['custom'] . "</a> already exists";
+        $_SESSION['error'] = 'The custom URL <a href="' . BASE_URL . $_POST['custom'] . '">' . BASE_URL . $_POST['custom'] . "</a> already exists";
   	}
   }
 
@@ -42,5 +43,6 @@
   }
 
   header("Location: ../index.php");
+  exit();
 
 ?>
