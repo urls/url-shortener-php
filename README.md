@@ -15,7 +15,7 @@
 
 1. Create a Database
 
-2. Edit the "config.php" file
+2. Edit the **config.php** file
 
 3. Upload files into your server
 
