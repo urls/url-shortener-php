@@ -1,16 +1,17 @@
 <?php
-	require_once 'UrlShortener.php';
 
-  $urlShortener = new UrlShortener();
+require_once("UrlShortener.php");
 
-  if (isset($_GET['secret']))
-  {
-  	$uniqueCode = $_GET['secret'];
-  	$orignalUrl = $urlShortener->getOrignalURL($uniqueCode);
-  	header("Location: {$orignalUrl}");
-  	die();
-  }
+$urlShortener = new UrlShortener();
 
-  header("Location: index.php");
-  die();
+if (isset($_GET['secret'])) {
+    $uniqueCode = $_GET['secret'];
+    $orignalUrl = $urlShortener->getOrignalURL($uniqueCode);
+    header("Location: {$orignalUrl}");
+    die();
+}
+
+header("Location: index.php");
+die();
+
 ?>
