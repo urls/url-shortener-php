@@ -4,7 +4,7 @@
 
 if ( !defined('SITE_NAME') )
 {
-    define('SITE_NAME', "Make It Short");
+    define('SITE_NAME', "Make It Short!");
 }
 
 // URL LOCATION (Don't forget "/" at the end !)
