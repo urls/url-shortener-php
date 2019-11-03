@@ -13,13 +13,15 @@
 
 ### How to install ?
 
-1. Create a Database
+1. Create a MySQL database
 
-2. Edit the **config.php** file
+2. Connect to your database and execute the SQL statements contained in the file **database/urls.sql**
 
-3. Upload files into your server
+3. Edit the **config.php** file
 
-4. That's it !
+4. Upload files into your server
+
+5. That's it !
 
 ## Contributing
 
