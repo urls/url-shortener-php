@@ -7,26 +7,35 @@
  > Web application that will help you in shortening your url by which you can get a more precised version of your url at ease.
 
 ### Screenshots
+
 ![url-shortener](img/s1.png)
 ***
 
+### How to install ?
+
+1. Create a MySQL database
+
+2. Connect to your database and execute the SQL statements contained in the file **database/urls.sql**
+
+3. Edit the **config.php** file
+
+4. Upload files into your server
+
+5. That's it !
+
 ## Contributing
+
 Pull requests are always welcome so don't hesitate to create one.
 
 ### Code Style
+
 The code is formatted according to the [PSR-2](http://www.php-fig.org/psr/psr-2/) standard. Please follow this standard when making a contribution.
 
-
 ## Contributors
-[:arrow_up:\[Back to Top\]](https://github.com/urls/url-shortener)
 
-Following is a list of contributors:
-
-1. Amar Prakash Pandey ([@amarlearning](https://github.com/ashish1294))
-2. Carlos Perez ([@mangroud](https://github.com/mangroud))
+Here is the list of [contributors](https://github.com/urls/url-shortener/graphs/contributors).
 
 ## Issues
-[:arrow_up:\[Back to Top\]](https://github.com/urls/url-shortener)
 
 You can report the bugs at the [issue tracker](https://github.com/urls/url-shortener/issues)
 
@@ -37,8 +46,7 @@ You can [tweet me](https://twitter.com/amarpandey007) if you can't get it to wor
 ***
 
 ## License
-[:arrow_up:\[Back to Top\]](https://github.com/urls/url-shortener)
 
-Built with ♥ by Amar Prakash Pandey([@amarlearning](http://github.com/amarlearning)) under [MIT License](http://amarlearning.mit-license.org/) 
+Built with ♥ by Amar Prakash Pandey ([@amarlearning](http://github.com/amarlearning)) under [MIT License](http://amarlearning.mit-license.org/) 
 
 You can find a copy of the License at [http://amarlearning.mit-license.org/](http://amarlearning.mit-license.org/)

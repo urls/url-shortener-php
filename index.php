@@ -1,5 +1,6 @@
 <?php
-session_start();
+    session_start();
+    require_once("./config.php");
 ?>
 
 <!DOCTYPE html>
@@ -9,13 +10,13 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="url shortener">
-    <title>MakeItShort!</title>
+    <title><?php echo SITE_NAME; ?></title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <br>
 <center>
-    <h1>Make It Short</h1>
+    <h1><?php echo SITE_NAME; ?></h1>
     <?php
     if (isset($_SESSION['success'])) {
         echo "<p class='success'>" . $_SESSION['success'] . "</p>";
