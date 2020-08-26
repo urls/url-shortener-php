@@ -1,0 +1,187 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /*background-image: url(../img/a566df2b-7ce7-4f83-a490-5df2ef949817.png);*/
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    margin: 20px;
+    color: #167699;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    height: 20px;
+    outline-color: #167699;
+    border: 1px solid #ddd;
+}
+
+.input_custom {
+    width: 100%;
+    padding: 10px;
+    height: 20px;
+    outline-color: #167699;
+    border: 1px solid #ddd;
+}
+
+.submit {
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    outline-color: #167699;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.alert {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #fff;
+    background-color: rgba(211, 47, 47, 1);
+}
+
+.success {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #fff;
+    background-color: lightgreen;
+    text-decoration: underline;
+}
+
+.success a {
+    color: #167699;
+}
+
+.onoffswitch {
+    position: relative;
+    width: 90px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    border: 2px solid #999999;
+    border-radius: 30px;
+    background-color: #EEEEEE;
+    transition: background-color 0.3s ease-in;
+}
+
+.onoffswitch-label:before {
+    content: "";
+    display: block;
+    width: 30px;
+    margin: 0px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 58px;
+    border: 2px solid #999999;
+    border-radius: 30px;
+    transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #167699;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    border-color: #167699;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px;
+}
+
+/*  SECTIONS  */
+.section {
+    clear: both;
+    padding: 0px;
+    margin: auto;
+    width: 50%;
+}
+
+/*  COLUMN SETUP  */
+.col {
+    display: block;
+    float: left;
+    margin: 1% 0 1% 0;
+}
+
+.col:first-child {
+    margin-left: 0;
+}
+
+/*  GROUPING  */
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    zoom: 1; /* For IE 6/7 */
+}
+
+/*  GRID OF THREE  */
+.span_3_of_3 {
+    width: 100%;
+}
+
+.span_2_of_3 {
+    width: 20%;
+    margin-left: 20px;
+
+}
+
+.span_1_of_3 {
+    width: 70%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+    .col {
+        margin: 1% 0 1% 0%;
+    }
+
+    .span_3_of_3, .span_2_of_3, .span_1_of_3 {
+        width: 100%;
+    }
+}
