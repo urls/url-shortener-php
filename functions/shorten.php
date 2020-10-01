@@ -3,7 +3,7 @@
 session_start();
 
 require_once("../config.php");
-require_once("../UrlShortener.php");
+require_once("./UrlShortener.php");
 
 $errors       = false;
 $insertCustom = false;
