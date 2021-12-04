@@ -17,11 +17,13 @@
 
 2. Connect to your database and execute the SQL statements contained in the file **database/urls.sql**
 
-3. Edit the **config.php** file
+3. Rename the file **config.php.dist** to config.php
 
-4. Upload files into your server
+4. Edit the **config.php** file
 
-5. That's it !
+5. Upload files into your server
+
+6. That's it !
 
 ## Contributing
 
