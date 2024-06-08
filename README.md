@@ -1,9 +1,8 @@
 # Make It Short
 
 [![MIT License](https://img.shields.io/pypi/l/pyzipcode-cli.svg)](http://amarlearning.mit-license.org/)
-[![Issues](https://camo.githubusercontent.com/926d8ca67df15de5bd1abac234c0603d94f66c00/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f6e747269627574696f6e732d77656c636f6d652d627269676874677265656e2e7376673f7374796c653d666c6174)](https://github.com/urls/url-shortener/issues)
 
-> Web application that will help you in shortening your url by which you can get a more precised version of your url at ease.
+> Web application that will help you in shortening your URL by which you can get a more precise version of your URL at ease.
 
 ### Screenshots
 
@@ -11,7 +10,7 @@
 
 ---
 
-### How to install ?
+### How to install?
 
 1. Create a MySQL database
 
@@ -19,9 +18,9 @@
 
 3. Edit the **config.php** file
 
-4. Upload files into your server
+4. Upload files to your server
 
-5. That's it !
+5. That's it!
 
 ## Contributing
 
@@ -29,7 +28,7 @@ Pull requests are always welcome so don't hesitate to create one.
 
 ### Code Style
 
-The code is formatted according to the [PSR-2](http://www.php-fig.org/psr/psr-2/) standard. Please follow this standard when making a contribution.
+The code is formatted according to the [PSR-2](http://www.php-fig.org/psr/psr-2/) standard. Please follow this standard when contributing.
 
 ## Contributors
 
