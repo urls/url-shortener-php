@@ -7,10 +7,11 @@ require_once(__DIR__."/UrlShortener.php");
 
 $errors       = false;
 $insertCustom = false;
+$onoffswitch  = isset($_POST['onoffswitch']) ? $_POST['onoffswitch'] : 'off';
 
 $urlShortener = new UrlShortener();
 
-if (($_POST['onoffswitch'] == 'on') && (isset($_POST['custom']))) {
+if (($onoffswitch == 'on') && (isset($_POST['custom']))) {
     $customCode = $_POST['custom'];
     
     if (!$urlShortener->checkUrlExistInDatabase($customCode)) {
