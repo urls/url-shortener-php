@@ -78,6 +78,8 @@ class UrlShortener {
         $customUniqueCode = trim($customUniqueCode);
         
         if (filter_var($orignalURL, FILTER_VALIDATE_URL)) {
+            $orignalURL       = $this->db->real_escape_string($orignalURL);
+            $customUniqueCode = $this->db->real_escape_string($customUniqueCode);
             $insert = $this->db->query("INSERT INTO link (url,code,created) VALUES ('{$orignalURL}','{$customUniqueCode}',NOW())");
             
             return true;
